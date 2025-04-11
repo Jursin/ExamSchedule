@@ -2,7 +2,7 @@ body {
     font-family: 'Roboto', 'HarmonyOS Sans SC', sans-serif;
     margin: 0;
     padding: 0;
-    background: #1C1B1F;
+    background: #2B2930;
     color: #E6E1E5;
     overflow: auto;
 }
@@ -15,7 +15,7 @@ body::-webkit-scrollbar {
     position: absolute;
     top: 20px;
     padding: 12px 24px;
-    font-size: 1rem;
+    font-size: 1.3rem;
     cursor: pointer;
     background-color: #4A4458;
     color: #E6E1E5;
@@ -43,10 +43,7 @@ body::-webkit-scrollbar {
 .container {
     padding: 24px;
     max-width: 1400px;
-    margin: auto;
-    background-color: #2B2930;
-    border-radius: 28px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    margin: 0 auto;
 }
 
 h1 {

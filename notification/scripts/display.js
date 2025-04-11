@@ -19,7 +19,7 @@ function updateDisplay() {
                 timeDisplay.textContent = formatTime(remain);
                 timeDesc.textContent = '距离 ' + nextCourse.name;
             } else {
-                timeDisplay.textContent = '00:00';
+                timeDisplay.textContent = '00:00:00';
                 timeDesc.textContent = '今日课程已结束';
             }
         }
@@ -31,13 +31,18 @@ function updateDisplay() {
 
 function formatTime(ms) {
     try {
-        if (ms < 0) return '00:00';
+        if (ms < 0) return '00:00:00';
         var totalSeconds = Math.floor(ms / 1000),
-            minutes = Math.floor(totalSeconds / 60),
+            hours = Math.floor(totalSeconds / 3600),
+            minutes = Math.floor((totalSeconds % 3600) / 60),
             seconds = totalSeconds % 60;
-        return (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+        return [
+            hours.toString().padStart(2, '0'),
+            minutes.toString().padStart(2, '0'),
+            seconds.toString().padStart(2, '0')
+        ].join(':');
     } catch (e) {
-        return '--:--';
+        return '--:--:--';
     }
 }
 

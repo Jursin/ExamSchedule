@@ -4,7 +4,7 @@
     <link rel="shortcut icon" href="./favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>选择页面</title>
+    <title>首页</title>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         body {
@@ -100,34 +100,20 @@
     </style>
 </head>
 <body>
-    <h1>选择版本：</h1>
+    <h1>选择页面：</h1>
     <ul>
-        <li><a href="./time/">电子钟表</a></li>
+        <li><a href="./time/">当前时间</a></li>
         <li><a href="./exam/">考试看板</a></li>
         <li><a href="./notification/">考试广播</a></li>
     </ul>
 
-    <!-- 添加GitHub图标跳转项目地址 -->
+    <!-- GitHub 图标跳转项目地址 -->
     <a href="https://github.com/ExamAware/ExamSchedule" target="_blank" class="github-link">
         <img src="./github-icon.png" alt="GitHub" title="在GitHub上查看源代码">
     </a>
 
-    <!-- 新增版权信息 -->
+    <!-- 版权信息 -->
     <div class="copyright">&copy; 2024-2025 ExamAware开发团队 版权所有</div>
     
-    <script>
-        // 愚人节彩蛋
-        function checkAprilFools() {
-            const today = new Date();
-            if(today.getMonth() === 3 && today.getDate() === 1) {  // 4月1日
-                if(Math.random() <= 0.75) {  // 75%的概率
-                    window.location.href = 'https://www.bilibili.com/video/BV1GJ411x7h7/';
-                }
-            }
-        }
-        
-        // 页面加载时执行检查
-        window.onload = checkAprilFools;
-    </script>
 </body>
 </html>

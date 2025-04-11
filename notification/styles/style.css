@@ -82,10 +82,12 @@ body {
     color: #57606f;
     font-weight: 600;
     border-bottom: 2px solid #e0e6ed;
+    vertical-align: middle;
 }
 .schedule-table td {
-    padding: 14px;
+    padding: 16px;
     border-bottom: 1px solid #f1f3f6;
+    vertical-align: middle;
 }
 .current-class {
     background: #e8f5e9 !important;

@@ -21,10 +21,10 @@ document.addEventListener("DOMContentLoaded", () => {
     roomElem.textContent = room;
 
     if (theme === "light") {
-        themeLink.href = "Styles/light.css";
+        themeLink.href = "styles/light.css";
         themeToggle.checked = true;
     } else {
-        themeLink.href = "Styles/dark.css";
+        themeLink.href = "styles/dark.css";
         themeToggle.checked = false;
     }
 
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
             setCookie("theme", theme, 365);
             roomElem.textContent = room;
             document.body.style.zoom = zoomLevel;
-            themeLink.href = theme === "light" ? "Styles/light.css" : "Styles/dark.css";
+            themeLink.href = theme === "light" ? "styles/light.css" : "styles/dark.css";
             settingsModal.classList.add("fade-out");
             setTimeout(() => {
                 settingsModal.style.display = "none";
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     themeToggle.addEventListener("change", () => {
         const theme = themeToggle.checked ? "light" : "dark";
-        themeLink.href = theme === "light" ? "Styles/light.css" : "Styles/dark.css";
+        themeLink.href = theme === "light" ? "styles/light.css" : "styles/dark.css";
     });
 
     configFileInput.addEventListener("change", (event) => {
