@@ -15,7 +15,7 @@ body::-webkit-scrollbar {
     position: absolute;
     top: 20px;
     padding: 12px 24px;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     cursor: pointer;
     background-color: #4A4458;
     color: #E6E1E5;
@@ -31,7 +31,7 @@ body::-webkit-scrollbar {
 }
 
 #settings-btn {
-    right: 120px;
+    right: 160px;
 }
 
 #settings-btn:hover, #fullscreen-btn:hover {

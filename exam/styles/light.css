@@ -2,7 +2,7 @@ body {
     font-family: 'Roboto', 'HarmonyOS Sans SC', sans-serif;
     margin: 0;
     padding: 0;
-    background: #FFFBFE;
+    background: #F7F2FA;
     color: #1C1B1F;
     overflow: auto;
 }
@@ -15,13 +15,13 @@ body::-webkit-scrollbar {
     position: absolute;
     top: 20px;
     padding: 12px 24px;
-    font-size: 1rem;
+    font-size: 1.5rem;
     cursor: pointer;
-    background-color: #4A4458;
-    color: #E6E1E5;
+    background-color: #E8DEF8;
+    color: #1C1B1F;
     border: none;
     border-radius: 20px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     transition: all 0.2s ease;
     z-index: 1001;
 }
@@ -31,7 +31,7 @@ body::-webkit-scrollbar {
 }
 
 #settings-btn {
-    right: 120px;
+    right: 160px;
 }
 
 #settings-btn:hover, #fullscreen-btn:hover {
@@ -43,10 +43,7 @@ body::-webkit-scrollbar {
 .container {
     padding: 24px;
     max-width: 1400px;
-    margin: auto;
-    background-color: #F7F2FA;
-    border-radius: 28px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 0 auto;
 }
 
 h1 {
