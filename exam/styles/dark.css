@@ -88,9 +88,12 @@ h1 {
 
 .right-column {
     width: 50%;
+    background-color: #332D41;
+    border-radius: 28px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
-.clock-section, .info-section, .right-column {
+.clock-section, .info-section {
     background-color: #332D41;
     padding: 24px;
     border-radius: 28px;
@@ -116,7 +119,6 @@ table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    margin-top: 24px;
     background-color: #332D41;
     border-radius: 16px;
     overflow: hidden;
@@ -133,6 +135,7 @@ th {
     background-color: #4A4458;
     color: #D0BCFF;
     font-weight: 500;
+    line-height: 2;
 }
 
 tr:hover {
