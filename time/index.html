@@ -2,173 +2,96 @@
 <html lang="zh-CN">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>当前时间</title>
-	<link rel="shortcut icon" href="../favicon.ico">
-	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=DM+Sans|Inter|Space+Mono|Work+Sans|Libre+Franklin&display=swap" rel="stylesheet">
-	<style>
-		/* 基础样式 */
-		body {
-			font-family: 'Roboto', 'HarmonyOS Sans SC', sans-serif;
-			margin: 0;
-			padding: 20px;
-			background: #1C1B1F;
-			color: #E6E1E5;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			height: 100vh;
-		}
-
-		.container {
-			text-align: center;
-			background: #2B2930;
-			padding: 48px;
-			border-radius: 28px;
-			box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-			animation: fadeIn 0.3s ease-in-out;
-		}
-
-		.time {
-			font-size: 10rem;
-			margin: 0;
-			color: #D0BCFF;
-			font-weight: 400;
-			text-shadow: none;
-		}
-
-		.text {
-			font-size: 1.5rem;
-			margin-bottom: 32px;
-			color: #E6E1E5;
-		}
-
-		.controls {
-			margin-top: 40px;
-			display: flex;
-			gap: 12px;
-			flex-wrap: wrap;
-			justify-content: center;
-		}
-
-		.btn, #fontSelector {
-			padding: 12px 24px;
-			border: none;
-			border-radius: 20px;
-			cursor: pointer;
-			transition: all 0.2s ease;
-			font-size: 1rem;
-			font-weight: 500;
-			background-color: #4A4458;
-			color: #E6E1E5;
-			box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-		}
-
-		.btn:hover, #fontSelector:hover {
-			background-color: #635B70;
-			transform: translateY(-1px);
-			box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-		}
-
-		#fontSelector {
-			padding: 10px 20px;
-		}
-
-		.btn.fullscreen {
-			background-color: #5C1130;
-			color: #FFB3B3;
-		}
-
-		.btn.fullscreen:hover {
-			background-color: #7D2046;
-		}
-
-		/* 简化动画效果 */
-		@keyframes fadeIn {
-			from { opacity: 0; transform: translateY(10px); }
-			to { opacity: 1; transform: translateY(0); }
-		}
-
-		/* 删除发光动画，符合 MD3 的简洁风格 */
-		
-		/* 下拉菜单样式 */
-		select {
-			appearance: none;
-			background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23E6E1E5'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
-			background-repeat: no-repeat;
-			background-position: right 10px center;
-			background-size: 20px;
-			padding-right: 40px;
-		}
-
-		select option {
-			background-color: #2B2930;
-			color: #E6E1E5;
-		}
-	</style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>当前时间</title>
+        <link rel="shortcut icon" href="../favicon.ico">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=DM+Sans|Inter|Space+Mono|Work+Sans|Libre+Franklin&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-	<div class="container">
-		<div class="text">当前时间：</div>
-		<div class="time" id="time"></div>
-		<div class="controls">
-			<select id="fontSelector" class="btn">
-				<!-- 新增的Google字体选项 -->
-				<option value="Roboto">Roboto（在线）</option>
-				<option value="DM Sans">DM Sans（在线）</option>
-				<option value="Inter">Inter（在线）</option>
-				<option value="Space Mono">Space Mono（在线）</option>
-				<option value="Work Sans">Work Sans（在线）</option>
-				<option value="Libre Franklin">Libre Franklin（在线）</option>
-				<option value="微软雅黑">微软雅黑</option>
-				<option value="黑体">黑体</option>
-				<option value="宋体">宋体</option>
-			</select>
-			<button class="btn" onclick="changeFontFamily()">更改字体</button>
-			<button class="btn" onclick="changeFontSize(-5)">字号 -</button>
-			<button class="btn" onclick="changeFontSize(5)">字号 +</button>
-			<button class="btn fullscreen" onclick="toggleFullScreen()">全屏/还原</button>
-		</div>
-	</div>
+        <button id="return-btn" onclick="goBack()">返回</button> <!-- 新增返回按钮 -->
+        <div class="container">
+                <div class="text">当前时间：</div>
+                <div class="time" id="time"></div>
+                <div class="controls">
+                        <select id="fontSelector" class="btn" onchange="changeFontFamily()">
+                                <option value="Roboto">Roboto（在线）</option>
+                                <option value="DM Sans">DM Sans（在线）</option>
+                                <option value="Inter">Inter（在线）</option>
+                                <option value="Space Mono">Space Mono（在线）</option>
+                                <option value="Work Sans">Work Sans（在线）</option>
+                                <option value="Libre Franklin">Libre Franklin（在线）</option>
+                                <option value="微软雅黑">微软雅黑</option>
+                                <option value="黑体">黑体</option>
+                                <option value="宋体">宋体</option>
+                        </select>
+                        <div class="font-size-control">
+                                <input type="number" id="fontSizeInput" class="btn" value="300" min="10" max="500" step="5">
+                                <span class="unit">px</span>
+                        </div>
+                        <button class="btn" onclick="changeFontSize(-5)">字号 -</button>
+                        <button class="btn" onclick="changeFontSize(5)">字号 +</button>
+                        <button class="btn fullscreen" onclick="toggleFullScreen()">全屏/还原</button>
+                </div>
+        </div>
 
-	<script>
-		setInterval(() => {
-			const date = new Date();
-			const time = date.toLocaleTimeString('zh-CN', {
-				hour12: false
-			});
-			document.getElementById('time').textContent = time;
-		}, 1000);
+        <script>
+                // 返回上级目录的函数
+                function goBack() {
+                        window.history.back();
+                }
 
-		function changeFontSize(change) {
-			const elements = document.querySelectorAll('.time');
-			elements.forEach(element => {
-				const currentSize = parseFloat(window.getComputedStyle(element).fontSize);
-				element.style.fontSize = `${currentSize + change}px`;
-			});
-		}
+                setInterval(() => {
+                        const date = new Date();
+                        const time = date.toLocaleTimeString('zh-CN', {
+                                hour12: false
+                        });
+                        document.getElementById('time').textContent = time;
+                }, 1000);
 
-		function changeFontFamily() {
-			const selectedFont = document.getElementById('fontSelector').value;
-			const elements = document.querySelectorAll('.time, .text');
-			elements.forEach(element => {
-				element.style.fontFamily = selectedFont;
-			});
-		}
+                function changeFontSize(change) {
+                        const elements = document.querySelectorAll('.time');
+                        const input = document.getElementById('fontSizeInput');
+                        elements.forEach(element => {
+                                let newSize;
+                                if (typeof change === 'number') {
+                                        const currentSize = parseFloat(window.getComputedStyle(element).fontSize);
+                                        newSize = currentSize + change;
+                                        input.value = newSize;
+                                } else {
+                                        newSize = parseInt(input.value);
+                                }
+                                element.style.fontSize = `${newSize}px`;
+                        });
+                }
 
-		function toggleFullScreen() {
-			if (!document.fullscreenElement) {
-				document.documentElement.requestFullscreen();
-			} else {
-				if (document.exitFullscreen) {
-					document.exitFullscreen();
-				}
-			}
-		}
-	</script>
+                function changeFontFamily() {
+                        const selectedFont = document.getElementById('fontSelector').value;
+                        const elements = document.querySelectorAll('.time, .text');
+                        elements.forEach(element => {
+                                element.style.fontFamily = selectedFont;
+                        });
+                }
+
+                function toggleFullScreen() {
+                        if (!document.fullscreenElement) {
+                                document.documentElement.requestFullscreen();
+                        } else {
+                                if (document.exitFullscreen) {
+                                        document.exitFullscreen();
+                                }
+                        }
+                }
+
+                // 监听字号输入框变化
+                document.getElementById('fontSizeInput').addEventListener('input', () => changeFontSize());
+
+                // 初始化默认字号
+                window.addEventListener('load', () => changeFontSize());
+        </script>
 </body>
 
 </html>

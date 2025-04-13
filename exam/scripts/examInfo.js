@@ -8,7 +8,46 @@ document.addEventListener("DOMContentLoaded", () => {
     const statusElem = document.getElementById("status");
     const examTableBodyElem = document.getElementById("exam-table-body");
     const roomElem = document.getElementById("room");
+    
+    // 获取Cookie函数
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+        return 0;
+    }
+    
     let offsetTime = getCookie("offsetTime") || 0;
+
+    // 错误处理系统
+    const errorSystem = {
+        show: (message) => {
+            console.error(message);
+            const errorElem = document.createElement('div');
+            errorElem.style.color = 'red';
+            errorElem.style.padding = '10px';
+            errorElem.textContent = message;
+            document.body.prepend(errorElem);
+        }
+    };
+
+    // 格式化时间（去除秒数）
+    function formatTimeWithoutSeconds(timeStr) {
+        return timeStr.slice(0, 5); // 截取"HH:MM"
+    }
+
+    // 格式化倒计时显示（HH:MM:SS 或 MM:SS）
+    function formatRemainingTime(seconds) {
+        const hours = Math.floor(seconds / 3600);
+        const minutes = Math.floor((seconds % 3600) / 60);
+        const secs = Math.floor(seconds % 60);
+        
+        if (hours > 0) {
+            return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        } else {
+            return `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+    }
 
     function fetchData() {
         // 优先使用本地配置
@@ -84,14 +123,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (currentExam) {
                 currentSubjectElem.textContent = `当前科目: ${currentExam.name}`;
-                examTimingElem.textContent = `起止时间: ${formatTimeWithoutSeconds(new Date(currentExam.start).toLocaleTimeString('zh-CN', { hour12: false }))} - ${formatTimeWithoutSeconds(new Date(currentExam.end).toLocaleTimeString('zh-CN', { hour12: false }))}`;
+                examTimingElem.textContent = `起止时间: ${formatTimeWithoutSeconds(new Date(currentExam.start).toLocaleTimeString('zh-CN', { hour12: false }))} ~ ${formatTimeWithoutSeconds(new Date(currentExam.end).toLocaleTimeString('zh-CN', { hour12: false }))}`;
                 const remainingTime = (new Date(currentExam.end).getTime() - now.getTime() + 1000) / 1000;
-                const remainingHours = Math.floor(remainingTime / 3600);
-                const remainingMinutes = Math.floor((remainingTime % 3600) / 60);
-                const remainingSeconds = Math.floor(remainingTime % 60);
-                const remainingTimeText = `${remainingHours}时 ${remainingMinutes}分 ${remainingSeconds}秒`;
+                const remainingTimeText = formatRemainingTime(remainingTime);
 
-                if (remainingHours === 0 && remainingMinutes <= 14) {
+                if (remainingTime <= 14 * 60) {
                     remainingTimeElem.textContent = `倒计时: ${remainingTimeText}`;
                     remainingTimeElem.style.color = "red";
                     remainingTimeElem.style.fontWeight = "bold";
@@ -113,10 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 statusElem.style.color = "red";
             } else if (nextExam) {
                 const timeUntilStart = ((new Date(nextExam.start).getTime() - now.getTime()) / 1000) + 1;
-                const remainingHours = Math.floor(timeUntilStart / 3600);
-                const remainingMinutes = Math.floor((timeUntilStart % 3600) / 60);
-                const remainingSeconds = Math.floor(timeUntilStart % 60);
-                const remainingTimeText = `${remainingHours}时 ${remainingMinutes}分 ${remainingSeconds}秒`;
+                const remainingTimeText = formatRemainingTime(timeUntilStart);
 
                 if (timeUntilStart <= 15 * 60) {
                     currentSubjectElem.textContent = `即将开始: ${nextExam.name}`;
@@ -133,13 +166,20 @@ document.addEventListener("DOMContentLoaded", () => {
                     statusElem.style.color = "#EAEE5B";
                 }
 
-                examTimingElem.textContent = `起止时间: ${formatTimeWithoutSeconds(new Date(nextExam.start).toLocaleTimeString('zh-CN', { hour12: false }))} - ${formatTimeWithoutSeconds(new Date(nextExam.end).toLocaleTimeString('zh-CN', { hour12: false }))}`;
+                examTimingElem.textContent = `起止时间: ${formatTimeWithoutSeconds(new Date(nextExam.start).toLocaleTimeString('zh-CN', { hour12: false }))} ~ ${formatTimeWithoutSeconds(new Date(nextExam.end).toLocaleTimeString('zh-CN', { hour12: false }))}`;
             } else {
-                currentSubjectElem.textContent = "考试均已结束";
+                currentSubjectElem.textContent = "考试已结束";
+                currentSubjectElem.style.cssText = `
+                    text-align: center;
+                    font-size: 1.2em;
+                    color: #888;
+                    font-weight: bold;
+                    width: 100%;
+                    display: block;
+                `;
                 examTimingElem.textContent = "";
                 remainingTimeElem.textContent = "";
-                statusElem.textContent = "状态: 空闲";
-                statusElem.style.color = "#3946AF";
+                statusElem.textContent = "";
             }
 
             examTableBodyElem.innerHTML = "";
