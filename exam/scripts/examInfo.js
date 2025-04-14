@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 currentSubjectElem.textContent = "考试已结束";
                 currentSubjectElem.style.cssText = `
                     text-align: center;
-                    font-size: 1.2em;
+                    font-size: 3em;
                     color: #888;
                     font-weight: bold;
                     width: 100%;
