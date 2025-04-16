@@ -6,114 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>首页</title>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background: #F7F2FA;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: 'Google Sans', 'Roboto', sans-serif;
-            color: #1C1B1F;
-            backdrop-filter: blur(10px);
-        }
-
-        h1 {
-            color: #1C1B1F;
-            font-size: 48px;
-            text-align: center;
-            margin-bottom: 40px;
-            animation: fadeInUp 1s ease-in-out;
-            font-weight: 500;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            animation: fadeInUp 1s ease-in-out;
-        }
-
-        a {
-            color: #E6E1E5;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 500;
-            padding: 16px 24px;
-            border-radius: 100px;
-            background-color: #49454F;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-
-        a:hover {
-            background-color: #605D64;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .copyright {
-            position: absolute;
-            bottom: 16px;
-            width: 100%;
-            text-align: center;
-            font-size: 14px;
-            color: #CAC4D0;
-            animation: fadeInUp 1s ease-in-out;
-        }
-
-        .github-link {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            background-color: transparent;
-            padding: 8px;
-            border-radius: 50%;
-        }
-
-        .github-link:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            transform: none;
-            box-shadow: none;
-        }
-
-        .github-link img {
-            width: 24px;
-            height: 24px;
-            filter: invert(1);
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>选择页面：</h1>
-    <ul>
-        <li><a href="./time/">当前时间</a></li>
-        <li><a href="./exam/">考试看板</a></li>
-        <li><a href="./notification/">考试广播</a></li>
-    </ul>
+    <div class="content-wrapper">
+        <div class="project-title">
+            <img src="./icon.png" alt="ExamSchedule Logo" class="project-logo">
+            ExamSchedule
+        </div>
+        
+        <div class="buttons-container">
+            <ul>
+                <li><a href="./time/"><span class="material-icons">schedule</span>当前时间</a></li>
+                <li><a href="./exam/"><span class="material-icons">dashboard</span>考试看板</a></li>
+            </ul>
+        </div>
+    </div>
 
-    <!-- GitHub 图标跳转项目地址 -->
-    <a href="https://github.com/ExamAware/ExamSchedule" target="_blank" class="github-link">
-        <img src="./github-icon.png" alt="GitHub" title="在GitHub上查看源代码">
-    </a>
+    <div class="top-right-links">
+        <a href="./about/" class="about-link">
+            <span class="material-icons">info</span>
+            关于
+        </a>
+        <a href="https://github.com/ExamAware/ExamSchedule" target="_blank" class="github-link">
+            <img src="./github-icon.png" alt="GitHub" title="在GitHub上查看源代码">
+        </a>
+    </div>
 
-    <!-- 版权信息 -->
-    <div class="copyright">&copy; 2024-2025 ExamAware开发团队 版权所有</div>
-    
+    <div class="copyright">&copy; 2024-2025 ExamAware 开发团队 版权所有</div>
 </body>
 </html>

@@ -1,23 +1,23 @@
-#return-btn {
-    position: absolute; /* 绝对定位 */
-    top: 20px; /* 距离顶部 20px */
-    left: 20px; /* 距离左侧 20px */
-    padding: 12px 24px; /* 内边距 */
-    font-size: 1rem; /* 字体大小 */
-    cursor: pointer; /* 鼠标悬停时显示为手型 */
-    background-color: #E8DEF8; /* 按钮背景颜色 */
-    color: #000000; /* 按钮文字颜色 */
-    border: none; /* 按钮边框样式 */
-    border-radius: 20px; /* 按钮圆角大小 */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* 按钮阴影 */
-    transition: all 0.2s ease; /* 背景颜色和缩放的过渡效果 */
-    z-index: 1001; /* 按钮层级 */
+#back-btn {
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #2b2b2b;
+    color: #ffffff;
+    border: 1px solid #444444;
+    border-radius: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+    z-index: 1001;
 }
 
-#return-btn:hover {
-    background-color: #D0BCFF; /* 悬停时的背景颜色 */
-    transform: translateY(-1px); /* 悬停时向上移动 1px */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* 悬停时的阴影效果 */
+#back-btn:hover {
+    background-color: #3c3c3c;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
 
 body {
@@ -35,9 +35,9 @@ body::-webkit-scrollbar {
 
 #fullscreen-btn, #settings-btn {
     position: absolute;
-    top: 20px;
+    top: 30px;
     padding: 12px 24px;
-    font-size: 1.5rem;
+    font-size: 1rem;
     cursor: pointer;
     background-color: #E8DEF8;
     color: #1C1B1F;
@@ -46,6 +46,22 @@ body::-webkit-scrollbar {
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     transition: all 0.2s ease;
     z-index: 1001;
+    display: flex;
+    align-items: center;
+}
+
+#fullscreen-btn::before {
+    content: "fullscreen";
+    font-family: 'Material Icons';
+    font-size: 20px;
+    margin-right: 4px;
+}
+
+#settings-btn::before {
+    content: "settings";
+    font-family: 'Material Icons';
+    font-size: 20px;
+    margin-right: 4px;
 }
 
 #fullscreen-btn {
@@ -53,7 +69,7 @@ body::-webkit-scrollbar {
 }
 
 #settings-btn {
-    right: 160px;
+    right: 140px;
 }
 
 #settings-btn:hover, #fullscreen-btn:hover {
@@ -72,7 +88,7 @@ h1 {
     font-size: 3.5rem;
     font-weight: 400;
     text-align: left;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
     color: #1C1B1F;
     display: flex;
     align-items: center;
@@ -96,6 +112,8 @@ h1 {
     display: flex;
     justify-content: space-between;
     gap: 24px;
+    margin-top: 10px;
+    padding: 24px;
 }
 
 .left-column, .right-column {

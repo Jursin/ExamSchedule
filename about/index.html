@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于 ExamSchedule</title>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <a href="../" class="back-btn">返回</a>
+
+    <div class="container">
+        <h1>关于 ExamSchedule</h1>
+
+        <div class="section">
+            <h2>功能特点</h2>
+            <ul class="feature-list">
+                <li>
+                    <span class="material-icons">schedule</span>
+                    <div>
+                        <strong>当前时间</strong>
+                        <ul>
+                            <li>显示当前时间</li>
+                            <li>支持自定义字体、字号</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <span class="material-icons">dashboard</span>
+                    <div>
+                        <strong>考试看板</strong>
+                        <ul>
+                            <li>显示当前时间、考试状态、考试列表</li>
+                            <li>支持设置时间偏移和考场号</li>
+                            <li>支持自定义缩放倍数</li>
+                            <li>支持深色/浅色模式<li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>部署说明</h2>
+            <p>您可以访问 <a href="https://docs.examaware.tech/app/web/web-deploy.html" class="external-link">部署教程</a> 了解详细的部署方法。</p>
+        </div>
+
+        <div class="section">
+            <h2>开发信息</h2>
+            <ul class="feature-list">
+                <li>
+                    <span class="material-icons">code</span>
+                    <div>主分支 (main) 提供稳定版本</div>
+                </li>
+                <li>
+                    <span class="material-icons">bug_report</span>
+                    <div>开发分支 (dev) 进行新功能开发</div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>许可证</h2>
+            <ul class="feature-list">
+                <li>
+                    <span class="material-icons">gavel</span>
+                    <div>
+                        <p>本项目采用 GNU General Public License v3.0</p>
+                        <pre id="license-content">正在加载许可证内容...</pre>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // 加载LICENSE文件内容
+        fetch('../LICENSE')
+            .then(response => response.text())
+            .then(content => {
+                document.getElementById('license-content').textContent = content;
+            })
+            .catch(error => {
+                document.getElementById('license-content').textContent = '加载许可证内容失败：' + error;
+            });
+    </script>
+</body>
+</html>

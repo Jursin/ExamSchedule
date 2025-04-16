@@ -1,0 +1,150 @@
+body {
+    background: #2C2B30;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Google Sans', 'Roboto', sans-serif;
+    color: #E6E1E5;
+    backdrop-filter: blur(10px);
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.project-title {
+    font-size: 36px;
+    font-weight: 500;
+    color: #E6E1E5;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.project-logo {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+ul a {
+    color: #E6E1E5;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 32px;
+    border-radius: 24px;
+    background-color: #49454F;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    min-width: 200px;
+    text-align: center;
+}
+
+ul a:hover {
+    background-color: #605D64;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+ul .material-icons {
+    font-size: 32px;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.copyright {
+    position: absolute;
+    bottom: 16px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #CAC4D0;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.top-right-links {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.about-link {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-size: 14px;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 1);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.about-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.github-link {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 8px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.github-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.github-link img {
+    width: 20px;
+    height: 20px;
+    filter: invert(1);
+}
+
+.material-icons {
+    font-size: 18px;
+}
